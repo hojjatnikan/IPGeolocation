@@ -1,0 +1,37 @@
+body {
+    overflow: hidden;    
+}
+
+.ip-card-square.mdl-card {
+    width: 460px;
+	
+}
+
+.ip-card-square>.mdl-card__title {
+    color: #fff;
+    background: url('../img/icon128.png') bottom 10% right 10% no-repeat #191919;
+}
+
+.mdl-data-table {
+    border: 0;
+    width: 100%;
+    font-size: medium;
+    font-weight: lighter;
+    color: #000;
+	
+}
+
+.mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
+    white-space: normal !important;
+}
+
+.mdl-progress {
+    width: 100%;
+}
+
+.mdl-data-table td {    
+    padding: 6px 9px;    
+}
+.mdl-card__title.mdl-card--expand{
+	height: 130px;
+}
