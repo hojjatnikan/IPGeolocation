@@ -22,12 +22,16 @@ function setBadgeColor(color) {
     chrome.action.setBadgeBackgroundColor({ color: color });
 }
 
-async function setIcon(country_code) {
+async function setIcon(country_code,country_name) {
     let showFlags = await lp.isSet(KEY_SETTINGS_SHOW_FLAGS) ? await lp.get(KEY_SETTINGS_SHOW_FLAGS) : true;
     if (country_code == "ERR" || !showFlags || !(countriesSupported.includes(country_code))) {
         chrome.action.setIcon({ path: "img/icon48.png" });
+		chrome.action.setTitle({ title: "ERR" });
     } else {
         chrome.action.setIcon({ path: "img/flags/48/" + country_code + ".png" });
+		
+		chrome.action.setTitle({ title: country_name });
+		
     }
 }
 
@@ -59,9 +63,9 @@ var geoLocate = new GeoLocation();
             checkForLocationChange(geoLocate, true);
 				
                 var country_code = geoLocate.get('countryCode') ? geoLocate.get('countryCode') : 'ERR';
-				
-                setBadgeText(country_code);
-                setIcon(country_code);
+				 var country_name = geoLocate.get('country') ? geoLocate.get('country') : 'ERR';
+                setBadgeText('');
+                setIcon(country_code,country_name);
             
         },
         error: function () {
